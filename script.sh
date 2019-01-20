@@ -45,7 +45,7 @@ function install_Main(){
 	elif [[ $System_id == 1 ]]; then
 		install_ready_ubuntu
 	else
-		echo -e $System_id"${Red} 未检测到正确是系统类型！一键安装失败！！！${Font}"
+		echo -e "${Red} 未检测到正确是系统类型！一键安装失败！！！[${System_id}]${Font}"
 		exit 0;
 	fi
 }
