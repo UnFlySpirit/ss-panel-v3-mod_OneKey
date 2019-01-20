@@ -5,7 +5,7 @@
 #!/bin/bash
 
 #标示当前系统类型 0 = centos  1 = ubuntu 2 = debian
-System_id = -1 
+System_id = "-1" 
 
 #check root
 [ $(id -u) != "0" ] && { echo "错误: 您必须以root用户运行此脚本"; exit 1; }
@@ -27,10 +27,10 @@ function check_system(){
     fi
 	bit=`uname -m`
 	if [[ ${release} == "centos" ]] && [[ ${bit} == "x86_64" ]]; then
-		System_id = 0
+		System_id = "0"
 		echo -e "你的系统为[${release} ${bit}],检测${Green} 可以 ${Font}搭建。"
 	elif [[ ${release} == "ubuntu" ]] && [[ ${bit} == "x86_64" ]]; then
-		System_id = 1
+		System_id = "1"
 		echo -e "你的系统为[${release} ${bit}],检测${Green} 可以 ${Font}搭建。"
 	else
 		echo -e "你的系统为[${release} ${bit}],检测${Red} 不可以 ${Font}搭建。"
@@ -45,7 +45,7 @@ function install_Main(){
 	elif [[ $System_id == 1 ]]; then
 		install_ready_ubuntu
 	else
-		echo -e "${Red} 未检测到正确是系统类型！一键安装失败！！！${Font}"
+		echo -e $System_id"${Red} 未检测到正确是系统类型！一键安装失败！！！${Font}"
 		exit 0;
 	fi
 }

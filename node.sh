@@ -15,7 +15,7 @@ RedBG="\033[41;37m"
 Font="\033[0m"
 
 #标示当前系统类型 0 = centos  1 = ubuntu 2 = debian
-System_id = -1 
+System_id = "-1"
 
 #notification information
 Info="${Green}[Info]${Font}"
@@ -57,10 +57,10 @@ check_system(){
 	#res = $(cat /etc/redhat-release | awk '{print $4}')
 	#if [[ ${release} == "centos" ]] && [[ ${bit} == "x86_64" ]] && [[ ${res} -ge 7 ]]; then
 	if [[ ${release} == "centos" ]] && [[ ${bit} == "x86_64" ]]; then
-		System_id = 0
+		System_id = "0"
 		echo -e "你的系统为[${release} ${bit}],检测${Green} 可以 ${Font}搭建。"
 	elif [[ ${release} == "ubuntu" ]] && [[ ${bit} == "x86_64" ]]; then
-		System_id = 1
+		System_id = "1"
 		echo -e "你的系统为[${release} ${bit}],检测${Green} 可以 ${Font}搭建。"
 	else 
 		echo -e "你的系统为[${release} ${bit}],检测${Red} 不可以 ${Font}搭建。"
@@ -70,12 +70,12 @@ check_system(){
 }
 
 node_install_start(){
-	if [[ $System_id == 0 ]]; then
+	if [[ $System_id == "0" ]]; then
 		node_install_start_centos
-	elif [[ $System_id == 1 ]]; then
+	elif [[ $System_id == "1" ]]; then
 		node_install_start_ubuntu
 	else
-		echo -e "${Red} 未检测到正确是系统类型！一键安装失败！！！ ${Font}"
+		echo -e "${Red} 未检测到正确是系统类型！一键安装失败！！！ ${Font}"$System_id
 		exit 0;
 	fi
 }
