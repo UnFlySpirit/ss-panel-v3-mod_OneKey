@@ -27,10 +27,10 @@ function check_system(){
     fi
 	bit=`uname -m`
 	if [[ ${release} == "centos" ]] && [[ ${bit} == "x86_64" ]]; then
-		System_id="0"
+		export System_id="0"
 		echo -e "你的系统为[${release} ${bit}],检测${Green} 可以 ${Font}搭建。"
 	elif [[ ${release} == "ubuntu" ]] && [[ ${bit} == "x86_64" ]]; then
-		System_id="1"
+		export System_id="1"
 		echo -e "[${System_id}]，你的系统为[${release} ${bit}],检测${Green} 可以 ${Font}搭建。"
 	else
 		echo -e "你的系统为[${release} ${bit}],检测${Red} 不可以 ${Font}搭建。"
@@ -40,9 +40,9 @@ function check_system(){
 }
 
 function install_Main(){
-	if [[ $System_id == 0 ]]; then
+	if [[ $System_id == "0" ]]; then
 		install_ready_centos
-	elif [[ $System_id == 1 ]]; then
+	elif [[ $System_id == "1" ]]; then
 		install_ready_ubuntu
 	else
 		echo -e "[${System_id}]，${Red} 未检测到正确是系统类型！一键安装失败！！！${Font}"
