@@ -61,7 +61,7 @@ check_system(){
 		echo -e "你的系统为[${release} ${bit}],检测${Green} 可以 ${Font}搭建。"
 	elif [[ ${release} == "ubuntu" ]] && [[ ${bit} == "x86_64" ]]; then
 		export System_id="1"
-		echo -e "[${System_id}]，你的系统为[${release} ${bit}],检测${Green} 可以 ${Font}搭建。"
+		echo -e "你的系统为[${release} ${bit}],检测${Green} 可以 ${Font}搭建。"
 	else 
 		echo -e "你的系统为[${release} ${bit}],检测${Red} 不可以 ${Font}搭建。"
 		echo -e "${Yellow} 正在退出脚本... ${Font}"
@@ -75,7 +75,7 @@ node_install_start(){
 	elif [[ $System_id == "1" ]]; then
 		node_install_start_ubuntu
 	else
-		echo -e "[${System_id}]，${Red} 未检测到正确是系统类型！一键安装失败！！！ ${Font}"
+		echo -e "${Red} 未检测到正确是系统类型！一键安装失败！！！ ${Font}"
 		exit 0;
 	fi
 }
