@@ -52,10 +52,10 @@ function install_Main(){
 
 function install_lnmp(){
 echo -e "\033[31m#############################################################\033[0m"
-echo -e "\033[35m#请选择你要安装的lnmp版本：                                 #\033[0m"
+echo -e "\033[35m#请选择你要安装的lnmp版本：                                   #\033[0m"
 echo -e "\033[36m#1.  lnmp1.4			                             #\033[0m"
 echo -e "\033[31m#2.  lnmp1.5        		                             #\033[0m"
-echo -e "\033[36m#3.  lnmp1.6（ubuntu-18.10 必须安装此版本，否则PHP安装失败）#\033[0m"
+echo -e "\033[36m#3.  lnmp1.6（ubuntu-18.10 必须安装此版本，否则PHP安装失败）   #\033[0m"
 echo -e "\033[31m#############################################################\033[0m"
 read -p "请选择你要安装的lnmp版本：" v_num
 if [ $v_num == "1" ]; then	
@@ -475,14 +475,14 @@ check_system
 sleep 2
 echo -e "脚本最后更新时间：${Green} ${update_time} ${Font}"
 echo -e "\033[31m#############################################################\033[0m"
-echo -e "\033[32m#欢迎使用一键ss-panel-v3-mod_UIChanges搭建脚本 and 节点添加 #\033[0m"
+echo -e "\033[32m#欢迎使用一键ss-panel-v3-mod_UIChanges搭建脚本 and 节点添加    #\033[0m"
 echo -e "\033[34m#			                                     #\033[0m"
-echo -e "\033[35m#请选择你要搭建的脚本：                                     #\033[0m"
+echo -e "\033[35m#请选择你要搭建的脚本：                                      #\033[0m"
 echo -e "\033[36m#1.  一键ss-panel-v3-mod_UIChanges搭建                      #\033[0m"
-echo -e "\033[31m#2.  一键添加SS-panel节点[新版]                             #\033[0m"
-echo -e "\033[36m#3.  一键添加SS-panel节点                                   #\033[0m"
-echo -e "\033[35m#4.  一键  BBR加速  搭建                                    #\033[0m"
-echo -e "\033[34m#5.  一键锐速破解版搭建                                     #\033[0m"
+echo -e "\033[31m#2.  一键添加SS-panel节点[新版]                              #\033[0m"
+echo -e "\033[36m#3.  一键添加SS-panel节点                                    #\033[0m"
+echo -e "\033[35m#4.  一键  BBR加速  搭建                                     #\033[0m"
+echo -e "\033[34m#5.  一键锐速破解版搭建                                      #\033[0m"
 echo -e "\033[33m#                                PS:建议先搭建加速再搭建面板#\033[0m"
 echo -e "\033[32m#                                   支持   Centos  7.x  系统#\033[0m"
 echo -e "\033[32m#                                   支持   Ubutun  x.x  系统#\033[0m"
