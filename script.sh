@@ -41,21 +41,37 @@ function check_system(){
 
 function install_Main(){
 	if [ $System_id == 0 ]; then
-		install_ss_panel_mod_UIm
+		install_ready_centos
 	elif [ $System_id == 1 ]; then
-		install_ss_panel_mod_Ubutu
+		install_ready_ubuntu
 	else
 		echo -e "${Red} 未检测到正确是系统类型！一键安装失败！！！ ${Font}"
 		exit 0;
 	fi
 }
 
+function install_ready_ubuntu(){
+    apt-get remove httpd -y
+	apt-get install unzip zip git -y
+    install_lnmp
+    sleep 100
+    install_ss_panel_mod_Ubutu
+}
+
+function install_ready_centos(){
+    yum remove httpd -y
+	yum install unzip zip git -y
+    install_lnmp
+    sleep 100
+    install_ss_panel_mod_UIm
+}
+
 function install_lnmp(){
 echo -e "\033[31m#############################################################\033[0m"
-echo -e "\033[35m#请选择你要安装的lnmp版本：                                   #\033[0m"
+echo -e "\033[35m#请选择你要安装的lnmp版本：                                 #\033[0m"
 echo -e "\033[36m#1.  lnmp1.4			                             #\033[0m"
 echo -e "\033[31m#2.  lnmp1.5        		                             #\033[0m"
-echo -e "\033[36m#3.  lnmp1.6（ubuntu-18.10 必须安装此版本，否则PHP安装失败）   #\033[0m"
+echo -e "\033[36m#3.  lnmp1.6（ubuntu-18.10 必须安装此版本，否则PHP安装失败）#\033[0m"
 echo -e "\033[31m#############################################################\033[0m"
 read -p "请选择你要安装的lnmp版本：" v_num
 if [ $v_num == "1" ]; then	
@@ -71,9 +87,6 @@ fi
 }
 
 function install_ss_panel_mod_Ubutu(){
-    apt-get remove httpd -y
-	apt-get install unzip zip git -y
-	install_lnmp
 	cd /home/wwwroot/
 	cp -r default/phpmyadmin/ .  #复制数据库
 	cd default
@@ -141,9 +154,6 @@ EOF
 }
 
 function install_ss_panel_mod_UIm(){
-    yum remove httpd -y
-	yum install unzip zip git -y
-	install_lnmp
 	cd /home/wwwroot/
 	cp -r default/phpmyadmin/ .  #复制数据库
 	cd default
@@ -475,14 +485,15 @@ check_system
 sleep 2
 echo -e "脚本最后更新时间：${Green} ${update_time} ${Font}"
 echo -e "\033[31m#############################################################\033[0m"
-echo -e "\033[32m#欢迎使用一键ss-panel-v3-mod_UIChanges搭建脚本 and 节点添加    #\033[0m"
+echo -e "\033[32m#欢迎使用一键ss-panel-v3-mod_UIChanges搭建脚本 and 节点添加 #\033[0m"
 echo -e "\033[34m#			                                     #\033[0m"
-echo -e "\033[35m#请选择你要搭建的脚本：                                      #\033[0m"
+echo -e "\033[35m#请选择你要搭建的脚本：                                     #\033[0m"
 echo -e "\033[36m#1.  一键ss-panel-v3-mod_UIChanges搭建                      #\033[0m"
-echo -e "\033[31m#2.  一键添加SS-panel节点[新版]                              #\033[0m"
-echo -e "\033[36m#3.  一键添加SS-panel节点                                    #\033[0m"
-echo -e "\033[35m#4.  一键  BBR加速  搭建                                     #\033[0m"
-echo -e "\033[34m#5.  一键锐速破解版搭建                                      #\033[0m"
+echo -e "\033[34m#2.  一键ss-panel-v3-mod_UIChanges搭建(不安装lnmp)          #\033[0m"
+echo -e "\033[31m#3.  一键添加SS-panel节点[新版]                             #\033[0m"
+echo -e "\033[36m#4.  一键添加SS-panel节点                                   #\033[0m"
+echo -e "\033[35m#5.  一键  BBR加速  搭建                                    #\033[0m"
+echo -e "\033[34m#6.  一键锐速破解版搭建                                     #\033[0m"
 echo -e "\033[33m#                                PS:建议先搭建加速再搭建面板#\033[0m"
 echo -e "\033[32m#                                   支持   Centos  7.x  系统#\033[0m"
 echo -e "\033[32m#                                   支持   Ubutun  x.x  系统#\033[0m"
@@ -497,11 +508,14 @@ then
 NEW_NODE
 elif [[ $num == "3" ]]
 then
-install_node
+NEW_NODE
 elif [[ $num == "4" ]]
 then
-install_BBR
+install_node
 elif [[ $num == "5" ]]
+then
+install_BBR
+elif [[ $num == "6" ]]
 then
 install_RS
 else 
