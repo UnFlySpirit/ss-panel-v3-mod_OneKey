@@ -70,9 +70,9 @@ check_system(){
 }
 
 node_install_start(){
-	if [ $System_id == 0 ]; then
+	if [[ $System_id == 0 ]]; then
 		node_install_start_centos
-	elif [ $System_id == 1 ]; then
+	elif [[ $System_id == 1 ]]; then
 		node_install_start_ubuntu
 	else
 		echo -e "${Red} 未检测到正确是系统类型！一键安装失败！！！ ${Font}"

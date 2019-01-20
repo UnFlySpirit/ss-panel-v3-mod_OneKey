@@ -40,12 +40,12 @@ function check_system(){
 }
 
 function install_Main(){
-	if [ $System_id == 0 ]; then
+	if [[ $System_id == 0 ]]; then
 		install_ready_centos
-	elif [ $System_id == 1 ]; then
+	elif [[ $System_id == 1 ]]; then
 		install_ready_ubuntu
 	else
-		echo -e "${Red} 未检测到正确是系统类型！一键安装失败！！！ ${Font}"
+		echo -e "${Red} 未检测到正确是系统类型！一键安装失败！！！${Font}"
 		exit 0;
 	fi
 }
@@ -74,11 +74,11 @@ echo -e "\033[31m#2.  lnmp1.5        		                             #\033[0m"
 echo -e "\033[36m#3.  lnmp1.6（ubuntu-18.10 必须安装此版本，否则PHP安装失败）#\033[0m"
 echo -e "\033[31m#############################################################\033[0m"
 read -p "请选择你要安装的lnmp版本：" v_num
-if [ $v_num == "1" ]; then	
+if [[ $v_num == "1" ]]; then	
 	wget -c --no-check-certificate https://raw.githubusercontent.com/UnFlySpirit/ss-panel-v3-mod_OneKey/master/lnmp1.4.zip && unzip lnmp1.4.zip && rm -rf lnmp1.4.zip && cd lnmp1.4 && chmod +x install.sh && ./install.sh lnmp
-elif [ $v_num == "2" ]; then	
+elif [[ $v_num == "2" ]]; then	
 	wget -c --no-check-certificate https://raw.githubusercontent.com/UnFlySpirit/ss-panel-v3-mod_OneKey/master/lnmp1.5.zip && unzip lnmp1.5.zip && rm -rf lnmp1.5.zip && cd lnmp1.5 && chmod +x install.sh && ./install.sh lnmp
-elif [ $v_num == "3" ]; then	
+elif [[ $v_num == "3" ]]; then	
 	wget -c --no-check-certificate https://raw.githubusercontent.com/UnFlySpirit/ss-panel-v3-mod_OneKey/master/lnmp1.6.zip && unzip lnmp1.6.zip && rm -rf lnmp1.6.zip && cd lnmp1.6 && chmod +x install.sh && ./install.sh lnmp
 else
 	echo '输入错误,请重新选择！';
