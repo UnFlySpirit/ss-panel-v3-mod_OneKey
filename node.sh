@@ -15,7 +15,7 @@ RedBG="\033[41;37m"
 Font="\033[0m"
 
 #标示当前系统类型 0 = centos  1 = ubuntu 2 = debian
-System_id = "-1"
+export System_id = "-1"
 
 #notification information
 Info="${Green}[Info]${Font}"
@@ -75,7 +75,7 @@ node_install_start(){
 	elif [[ $System_id == "1" ]]; then
 		node_install_start_ubuntu
 	else
-		echo -e "[${System_id}]，${Red} 未检测到正确是系统类型！一键安装失败！！！ ${Font}"$
+		echo -e "[${System_id}]，${Red} 未检测到正确是系统类型！一键安装失败！！！ ${Font}"
 		exit 0;
 	fi
 }
