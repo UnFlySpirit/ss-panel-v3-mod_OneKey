@@ -61,7 +61,7 @@ check_system(){
 		echo -e "你的系统为[${release} ${bit}],检测${Green} 可以 ${Font}搭建。"
 	elif [[ ${release} == "ubuntu" ]] && [[ ${bit} == "x86_64" ]]; then
 		System_id = "1"
-		echo -e "你的系统为[${release} ${bit}],检测${Green} 可以 ${Font}搭建。"
+		echo -e "[${System_id}]，你的系统为[${release} ${bit}],检测${Green} 可以 ${Font}搭建。"
 	else 
 		echo -e "你的系统为[${release} ${bit}],检测${Red} 不可以 ${Font}搭建。"
 		echo -e "${Yellow} 正在退出脚本... ${Font}"
