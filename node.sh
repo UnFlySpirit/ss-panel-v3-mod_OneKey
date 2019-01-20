@@ -75,7 +75,7 @@ node_install_start(){
 	elif [[ $System_id == "1" ]]; then
 		node_install_start_ubuntu
 	else
-		echo -e "${Red} 未检测到正确是系统类型！一键安装失败！！！ ${Font}"${System_id}
+		echo -e "${Red} 未检测到正确是系统类型！一键安装失败！！！ [${System_id}]${Font}"
 		exit 0;
 	fi
 }
